@@ -1,7 +1,5 @@
 part of '../theme.dart';
 
 TextTheme createTextTheme() {
-  return const TextTheme(
-    headline1: headline1,
-  );
+  return const TextTheme(headline1: headline1, headline2: headline2);
 }

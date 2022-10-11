@@ -1,3 +1,10 @@
 {
-    "hello": "Hello"
+    "hello": "Hello",
+    "setValidUrl": "Set valid API base URL in order to continue",
+    "startCountingProcess": "Start counting process",
+    "fieldMustNotBeEmpty": "Field must not be empty",
+    "urlIsNotValid": "URL is not valid",
+    "loading": "Loading...",
+    "defaultError": "Something went wrong",
+    "noInternetConnection": "No internet connection"
 }
