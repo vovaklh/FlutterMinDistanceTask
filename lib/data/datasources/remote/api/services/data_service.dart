@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:shortest_way_task/data/datasources/remote/api/api_string.dart';
+import 'package:shortest_way_task/data/datasources/remote/api/models/data_post_model.dart';
 import 'package:shortest_way_task/data/datasources/remote/api/models/data_wrapper_model.dart';
 
 part 'data_service.g.dart';
@@ -11,4 +12,7 @@ abstract class DataService {
 
   @GET(ApiString.getData)
   Future<DataWrapperModel> getData();
+
+  @POST(ApiString.postData)
+  Future<void> evaluateResults(@Body() List<DataPostModel> models);
 }

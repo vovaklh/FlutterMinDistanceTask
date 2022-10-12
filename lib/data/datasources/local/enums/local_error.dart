@@ -3,7 +3,8 @@ import 'package:shortest_way_task/core/utils/extensions/build_context_ext.dart';
 
 enum LocalError {
   defaultError,
-  noInternetConnection;
+  noInternetConnection,
+  cantFindTheShortestPath;
 
   const LocalError();
 
@@ -13,6 +14,8 @@ enum LocalError {
         return context.localizations.defaultError;
       case LocalError.noInternetConnection:
         return context.localizations.noInternetConnection;
+      case LocalError.cantFindTheShortestPath:
+        return context.localizations.cantFindShortestPath;
     }
   }
 }

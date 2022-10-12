@@ -20,13 +20,14 @@ import '../../domain/entities/data.dart' as _i8;
 import '../../domain/entities/data_wrapper.dart' as _i10;
 import '../../domain/entities/point.dart' as _i6;
 import '../../domain/repositories/data_repository.dart' as _i13;
-import '../../presentation/cubits/data_cubit.dart' as _i14;
-import 'modules/api_module.dart' as _i15;
-import 'modules/converter_module.dart' as _i16;
-import 'modules/cubit_module.dart' as _i19;
-import 'modules/repository_module.dart' as _i18;
+import '../../presentation/cubits/data_cubit/data_cubit.dart' as _i15;
+import '../../presentation/cubits/process_cubit/process_cubit.dart' as _i14;
+import 'modules/api_module.dart' as _i16;
+import 'modules/converter_module.dart' as _i17;
+import 'modules/cubit_module.dart' as _i20;
+import 'modules/repository_module.dart' as _i19;
 import 'modules/storage_module.dart'
-    as _i17; // ignore_for_file: unnecessary_lambdas
+    as _i18; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -65,18 +66,21 @@ Future<_i1.GetIt> $configureDependencies(
         get<_i3.Dio>(),
         get<_i12.DataService>(),
         get<_i4.ModelConverter<_i9.DataWrapperModel, _i10.DataWrapper>>(),
+        get<_i4.ModelConverter<_i5.PointModel, _i6.Point>>(),
       ));
-  gh.factory<_i14.DataCubit>(
+  gh.factory<_i14.ProcessCubit>(
+      () => cubitModule.processCubit(get<_i13.DataRepository>()));
+  gh.factory<_i15.DataCubit>(
       () => cubitModule.dataCubit(get<_i13.DataRepository>()));
   return get;
 }
 
-class _$ApiModule extends _i15.ApiModule {}
+class _$ApiModule extends _i16.ApiModule {}
 
-class _$ConverterModule extends _i16.ConverterModule {}
+class _$ConverterModule extends _i17.ConverterModule {}
 
-class _$StorageModule extends _i17.StorageModule {}
+class _$StorageModule extends _i18.StorageModule {}
 
-class _$RepositoryModule extends _i18.RepositoryModule {}
+class _$RepositoryModule extends _i19.RepositoryModule {}
 
-class _$CubitModule extends _i19.CubitModule {}
+class _$CubitModule extends _i20.CubitModule {}

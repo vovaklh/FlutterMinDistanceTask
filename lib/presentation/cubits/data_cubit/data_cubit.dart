@@ -12,15 +12,13 @@ class DataCubit extends Cubit<DataState> {
   DataCubit({required this.dataRepository}) : super(const DataState.initial());
 
   Future<void> loadUrl() async {
-    await Future.delayed(const Duration(milliseconds: 300));
-    final url = dataRepository.getApiUrl();
+    final url = await dataRepository.getApiUrl();
     emit(DataState.successGetApiUrl(url));
   }
 
   Future<void> getData(String apiUrl) async {
     try {
       emit(const DataState.loading());
-      await Future.delayed(const Duration(milliseconds: 600));
 
       await dataRepository.setApiBaseUrl(apiUrl);
 

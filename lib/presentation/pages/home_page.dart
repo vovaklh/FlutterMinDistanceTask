@@ -5,8 +5,10 @@ import 'package:shortest_way_task/core/mixins/error_provider.dart';
 import 'package:shortest_way_task/core/mixins/validator.dart';
 import 'package:shortest_way_task/core/utils/error_handler.dart';
 import 'package:shortest_way_task/core/utils/extensions/build_context_ext.dart';
-import 'package:shortest_way_task/presentation/cubits/data_cubit.dart';
+import 'package:shortest_way_task/domain/entities/data.dart';
+import 'package:shortest_way_task/presentation/cubits/data_cubit/data_cubit.dart';
 import 'package:shortest_way_task/presentation/dialogs/loader_dialog.dart';
+import 'package:shortest_way_task/presentation/pages/process_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,6 +38,7 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
       },
       successGetData: (data) {
         _dismissDialog();
+        _goToProcessPage(data);
       },
       error: (exception) {
         _dismissDialog();
@@ -43,6 +46,12 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
       },
       orElse: () {},
     );
+  }
+
+  void _goToProcessPage(List<Data> data) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ProcessPage(data: data),
+    ));
   }
 
   void _showLoaderDialog() {
@@ -78,21 +87,17 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
         listener: _listenBloc,
         child: Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
                   context.localizations.setValidUrl,
                   style: context.text.homePageTitle,
                 ),
-              ),
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
+                const SizedBox(height: 10),
+                Row(
                   children: [
                     Icon(
                       Icons.compare_arrows_outlined,
@@ -107,27 +112,26 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
                     ),
                   ],
                 ),
-              ),
-              const Spacer(),
-              Align(
-                alignment: Alignment.center,
-                child: SizedBox(
-                  width: 300,
-                  child: ElevatedButton(
-                    onPressed: _onButtonPressed,
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      textStyle: context.text.startCountingButton,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                const Spacer(),
+                Align(
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _onButtonPressed,
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        textStyle: context.text.startCountingButton,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
+                      child: Text(context.localizations.startCountingProcess),
                     ),
-                    child: Text(context.localizations.startCountingProcess),
                   ),
                 ),
-              ),
-              const SizedBox(height: 10),
-            ],
+              ],
+            ),
           ),
         ),
       ),
