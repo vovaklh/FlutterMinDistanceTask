@@ -25,6 +25,10 @@ class _BFGPathFinder implements _PathFinder {
 
   @override
   Queue<Point> findShortestPath() {
+    // if (data.start == data.end) {
+    //   return Queue.from([data.start]);
+    // }
+
     grid = List.generate(
       data.field.length,
       (index) => data.field[index].split(''),

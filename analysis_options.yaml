@@ -7,7 +7,6 @@ analyzer:
     - lib/**/**.config.dart
     - lib/**/**.g.dart
     - lib/**/**.freezed.dart
-    - test/**
 
   errors:
     invalid_annotation_target: ignore
