@@ -11,5 +11,7 @@
     "finishedCalculations": "All calculations finished, you can send your results to server",
     "processScreen": "Process screen",
     "sendResults": "Send results to server",
-    "cantFindShortestPath": "Can't find shortest path for some task"
+    "cantFindShortestPath": "Can't find shortest path for some task",
+    "resultListScreen": "Result list screen",
+    "previewScreen": "Preview screen"
 }

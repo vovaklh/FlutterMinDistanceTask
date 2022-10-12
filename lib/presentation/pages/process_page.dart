@@ -64,7 +64,7 @@ class _ProcessPageState extends State<ProcessPage> with ErrorProvider {
   }
 
   void _goToResultPage() {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
+    Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => ResultsPage(
         solutions: _cubit.state.solutions,
       ),

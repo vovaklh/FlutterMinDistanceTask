@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shortest_way_task/core/di/locator.dart';
 import 'package:shortest_way_task/core/mixins/error_provider.dart';
@@ -21,10 +22,12 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
   final _formKey = GlobalKey<FormState>();
   final _urlController = TextEditingController();
   final _cubit = locator<DataCubit>();
+  final _node = FocusNode();
 
   bool _isDialogShown = false;
 
   void _onButtonPressed() {
+    _node.unfocus();
     if (_formKey.currentState?.validate() ?? false) {
       _cubit.getData(_urlController.text);
     }
@@ -72,6 +75,11 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
   @override
   void initState() {
     super.initState();
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     _cubit.loadUrl();
   }
 
@@ -107,6 +115,7 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
                     Expanded(
                       child: TextFormField(
                         controller: _urlController,
+                        focusNode: _node,
                         validator: (value) => validateUrl(value, context),
                       ),
                     ),

@@ -6,6 +6,8 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
   final TextStyle startCountingButton;
   final TextStyle processPageCalculationResults;
   final TextStyle resultsScreenTitle;
+  final TextStyle gridPoint;
+  final TextStyle previewPageShortestPath;
 
   ThemeTextStyles({
     required this.test,
@@ -13,6 +15,8 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     required this.startCountingButton,
     required this.processPageCalculationResults,
     required this.resultsScreenTitle,
+    required this.gridPoint,
+    required this.previewPageShortestPath,
   });
 
   @override
@@ -22,6 +26,8 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     TextStyle? startCountingButton,
     TextStyle? processPageCalculationResults,
     TextStyle? resultsScreenTitle,
+    TextStyle? gridPoint,
+    TextStyle? previewPageShortestPath,
   }) {
     return ThemeTextStyles(
       test: test ?? this.test,
@@ -30,6 +36,9 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
       processPageCalculationResults:
           processPageCalculationResults ?? this.processPageCalculationResults,
       resultsScreenTitle: resultsScreenTitle ?? this.resultsScreenTitle,
+      gridPoint: gridPoint ?? this.gridPoint,
+      previewPageShortestPath:
+          previewPageShortestPath ?? this.previewPageShortestPath,
     );
   }
 
@@ -53,6 +62,9 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
           t)!,
       resultsScreenTitle:
           TextStyle.lerp(resultsScreenTitle, other.resultsScreenTitle, t)!,
+      gridPoint: TextStyle.lerp(gridPoint, other.gridPoint, t)!,
+      previewPageShortestPath: TextStyle.lerp(
+          previewPageShortestPath, other.previewPageShortestPath, t)!,
     );
   }
 
@@ -74,6 +86,12 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
         resultsScreenTitle: headline1.copyWith(
           color: AppColors.black,
         ),
+        gridPoint: headline1.copyWith(
+          color: AppColors.black,
+        ),
+        previewPageShortestPath: headline1.copyWith(
+          color: AppColors.black,
+        ),
       );
 
   static get dark => ThemeTextStyles(
@@ -91,6 +109,12 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
           color: AppColors.black,
         ),
         resultsScreenTitle: headline1.copyWith(
+          color: AppColors.black,
+        ),
+        gridPoint: headline1.copyWith(
+          color: AppColors.black,
+        ),
+        previewPageShortestPath: headline1.copyWith(
           color: AppColors.black,
         ),
       );
