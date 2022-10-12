@@ -4,4 +4,4 @@ The goal of app - find the shortest way between start and end points in binary m
 
 Click on the image below to see YouTube video.
 
-[![Watch the video](images/min_distance_link.jpg)](https://youtu.be/8UDUgC-1Cow)
+[![Watch the video](images/min_distance_link.jpg)](https://youtu.be/09p4uiNnspY)
