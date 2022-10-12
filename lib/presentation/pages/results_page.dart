@@ -43,7 +43,7 @@ class ResultsPage extends StatelessWidget {
             width: double.infinity,
             alignment: Alignment.center,
             child: Text(
-              solutions.entries.elementAt(index).value.replaceXY().getPath(),
+              solutions.entries.elementAt(index).value.getPath(),
               textAlign: TextAlign.center,
               style: context.text.resultsScreenTitle,
             ),

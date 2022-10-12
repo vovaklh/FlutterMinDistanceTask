@@ -67,7 +67,7 @@ class PreviewPage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              shortestPath.replaceXY().getPath(),
+              shortestPath.getPath(),
               style: context.text.previewPageShortestPath,
             ),
           ],
@@ -97,7 +97,7 @@ class _Cell extends StatelessWidget {
         alignment: Alignment.center,
         height: 30,
         child: Text(
-          "(${point.y},${point.x})",
+          "(${point.x},${point.y})",
           style: context.text.gridPoint,
         ),
       ),

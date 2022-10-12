@@ -15,13 +15,4 @@ extension QueueExt on Queue<Point> {
     }
     return path;
   }
-
-  Queue<Point> replaceXY() {
-    final Queue<Point> points = Queue();
-    for (var i = 0; i < length; i++) {
-      final Point point = elementAt(i);
-      points.addLast(Point(x: point.y, y: point.x));
-    }
-    return points;
-  }
 }
