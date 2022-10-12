@@ -1,16 +1,7 @@
-# shortest_way_task
+# Shortest way task in Flutter app
 
-A new Flutter project.
+The goal of app - find the shortest way between start and end points in binary matrix. I used BFG algorithm to solve this task.
 
-## Getting Started
+Click on the image below to see YouTube video.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![Watch the video](images/min_distance_link.jpg)](https://youtu.be/8UDUgC-1Cow)

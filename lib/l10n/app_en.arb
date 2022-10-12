@@ -1,0 +1,17 @@
+{
+    "hello": "Hello",
+    "setValidUrl": "Set valid API base URL in order to continue",
+    "startCountingProcess": "Start counting process",
+    "fieldMustNotBeEmpty": "Field must not be empty",
+    "urlIsNotValid": "URL is not valid",
+    "loading": "Loading...",
+    "defaultError": "Something went wrong",
+    "noInternetConnection": "No internet connection",
+    "calculating": "Calculating...",
+    "finishedCalculations": "All calculations finished, you can send your results to server",
+    "processScreen": "Process screen",
+    "sendResults": "Send results to server",
+    "cantFindShortestPath": "Can't find shortest path for some task",
+    "resultListScreen": "Result list screen",
+    "previewScreen": "Preview screen"
+}
