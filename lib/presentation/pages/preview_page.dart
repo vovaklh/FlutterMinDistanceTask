@@ -91,7 +91,7 @@ class _Cell extends StatelessWidget {
     return GridTile(
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 1),
+          border: Border.all(color: context.color.cellBorder, width: 1),
           color: color,
         ),
         alignment: Alignment.center,

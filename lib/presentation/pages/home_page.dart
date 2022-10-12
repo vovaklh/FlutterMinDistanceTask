@@ -34,19 +34,13 @@ class _HomePageState extends State<HomePage> with Validator, ErrorProvider {
   }
 
   void _listenBloc(_, DataState state) {
+    _dismissDialog();
     state.maybeWhen(
       loading: _showLoaderDialog,
-      successGetApiUrl: (apiUrl) {
-        _urlController.text = apiUrl;
-      },
-      successGetData: (data) {
-        _dismissDialog();
-        _goToProcessPage(data);
-      },
-      error: (exception) {
-        _dismissDialog();
-        showError(ErrorHandler.processError(context, exception), context);
-      },
+      successGetApiUrl: (apiUrl) => _urlController.text = apiUrl,
+      successGetData: (data) => _goToProcessPage(data),
+      error: (exception) =>
+          showError(ErrorHandler.processError(context, exception), context),
       orElse: () {},
     );
   }

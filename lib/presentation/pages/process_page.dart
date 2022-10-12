@@ -59,7 +59,7 @@ class _ProcessPageState extends State<ProcessPage> with ErrorProvider {
     }
   }
 
-  void _onSendButtonTap() {
+  void _onSendButtonPressed() {
     _cubit.evaluateResults();
   }
 
@@ -86,7 +86,10 @@ class _ProcessPageState extends State<ProcessPage> with ErrorProvider {
       body: BlocConsumer<ProcessCubit, ProcessState>(
         bloc: _cubit,
         builder: (_, ProcessState state) {
-          return _Process(progress: state.progress, onTap: _onSendButtonTap);
+          return _ProcessView(
+            progress: state.progress,
+            onTap: _onSendButtonPressed,
+          );
         },
         listener: _listenBloc,
       ),
@@ -94,11 +97,11 @@ class _ProcessPageState extends State<ProcessPage> with ErrorProvider {
   }
 }
 
-class _Process extends StatelessWidget {
+class _ProcessView extends StatelessWidget {
   final double progress;
   final VoidCallback onTap;
 
-  const _Process({
+  const _ProcessView({
     key,
     required this.progress,
     required this.onTap,

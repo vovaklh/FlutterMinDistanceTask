@@ -1,7 +1,6 @@
 part of '../theme.dart';
 
 class ThemeColors extends ThemeExtension<ThemeColors> {
-  final Color test;
   final Color homePageIconColor;
   final Color percentageIndicatorColor;
   final Color startPoint;
@@ -9,9 +8,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
   final Color blockedPoint;
   final Color shortestPathPoint;
   final Color defaultPoint;
+  final Color cellBorder;
 
   const ThemeColors({
-    required this.test,
     required this.homePageIconColor,
     required this.percentageIndicatorColor,
     required this.startPoint,
@@ -19,11 +18,11 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     required this.blockedPoint,
     required this.shortestPathPoint,
     required this.defaultPoint,
+    required this.cellBorder,
   });
 
   @override
   ThemeExtension<ThemeColors> copyWith({
-    Color? test,
     Color? homePageIconColor,
     Color? percentageIndicatorColor,
     Color? startPoint,
@@ -31,9 +30,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? blockedPoint,
     Color? shortestPathPoint,
     Color? defaultPoint,
+    Color? cellBorder,
   }) {
     return ThemeColors(
-      test: test ?? this.test,
       homePageIconColor: homePageIconColor ?? this.homePageIconColor,
       percentageIndicatorColor:
           percentageIndicatorColor ?? this.percentageIndicatorColor,
@@ -42,6 +41,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       blockedPoint: blockedPoint ?? this.blockedPoint,
       shortestPathPoint: shortestPathPoint ?? this.shortestPathPoint,
       defaultPoint: defaultPoint ?? this.defaultPoint,
+      cellBorder: cellBorder ?? this.cellBorder,
     );
   }
 
@@ -55,7 +55,6 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     }
 
     return ThemeColors(
-      test: Color.lerp(test, other.test, t)!,
       homePageIconColor: homePageIconColor,
       percentageIndicatorColor: percentageIndicatorColor,
       startPoint: startPoint,
@@ -63,11 +62,11 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       blockedPoint: blockedPoint,
       shortestPathPoint: shortestPathPoint,
       defaultPoint: defaultPoint,
+      cellBorder: cellBorder,
     );
   }
 
   static get light => ThemeColors(
-        test: AppColors.white,
         homePageIconColor: AppColors.black,
         percentageIndicatorColor: AppColors.blue,
         startPoint: const Color(0xFF64FFDA),
@@ -75,10 +74,10 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
         blockedPoint: AppColors.black.withOpacity(0.85),
         shortestPathPoint: const Color(0xFF4CAF50),
         defaultPoint: AppColors.white,
+        cellBorder: AppColors.black,
       );
 
   static get dark => ThemeColors(
-        test: AppColors.white,
         homePageIconColor: AppColors.black,
         percentageIndicatorColor: AppColors.blue,
         startPoint: const Color(0xFF64FFDA),
@@ -86,5 +85,6 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
         blockedPoint: AppColors.black.withOpacity(0.85),
         shortestPathPoint: const Color(0xFF4CAF50),
         defaultPoint: AppColors.white,
+        cellBorder: AppColors.black,
       );
 }
