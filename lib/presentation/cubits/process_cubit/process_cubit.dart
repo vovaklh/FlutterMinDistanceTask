@@ -3,7 +3,7 @@ import "dart:collection";
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:shortest_way_task/core/utils/get_shortest_path.dart';
+import 'package:shortest_way_task/core/utils/path_finder.dart';
 import 'package:shortest_way_task/domain/entities/data.dart';
 import 'package:shortest_way_task/domain/entities/point.dart';
 import 'package:shortest_way_task/domain/repositories/data_repository.dart';

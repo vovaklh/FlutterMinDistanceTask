@@ -5,18 +5,23 @@ import 'package:shortest_way_task/data/datasources/local/enums/local_error.dart'
 import 'package:shortest_way_task/domain/entities/data.dart';
 import 'package:shortest_way_task/domain/entities/point.dart';
 
-abstract class PathFinder {
+Future<Queue<Point>> findShortestPath(Data data) async {
+  final pathFinder = _BFGPathFinder(data);
+  return pathFinder.findShortestPath();
+}
+
+abstract class _PathFinder {
   Queue<Point> findShortestPath();
 }
 
-class BFGPathFinder implements PathFinder {
+class _BFGPathFinder implements _PathFinder {
   final Data data;
 
   late List<List<String>> grid;
   late int gridWidth = 0;
   late int gridHeight = 0;
 
-  BFGPathFinder(this.data);
+  _BFGPathFinder(this.data);
 
   @override
   Queue<Point> findShortestPath() {
